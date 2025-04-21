@@ -1,0 +1,62 @@
+
+
+
+
+/* Animação de rotação 3D contínua do cubo */
+@keyframes cubeRotate {
+    from {
+      transform: rotateX(0deg) rotateY(0deg); /* Início da rotação: sem rotação */
+    }
+    to {
+      transform: rotateX(360deg) rotateY(360deg); /* Final da rotação: rotação completa */
+    }
+}
+  /* Estilo base do corpo da página */
+body {
+    background-color: #000; /* Fundo preto */
+    display: flex; /* Usa flexbox para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Altura total da tela */
+    margin: 0; /* Remove margem padrão */
+}
+  /* Contêiner que aplica a perspectiva 3D */
+.animation-container {
+    perspective: 1000px; /* Distância da câmera para efeito 3D */
+}
+  /* O cubo em si */
+.cube {
+    position: relative; /* Para posicionar as faces dentro */
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d; /* Mantém as transformações 3D nas crianças */
+    animation: cubeRotate 8s infinite linear; /* Aplica a animação de rotação */
+}
+  /* Estilo padrão de cada face do cubo */
+.cube-face {
+    position: absolute; /* Posiciona em relação ao cubo */
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 255, 255, 0.1); /* Cor transparente ciano */
+    border: 1px solid #00ffff; /* Contorno ciano */
+    display: flex; /* Para centralizar conteúdo interno (se quiser texto) */
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    font-family: sans-serif;
+    box-shadow: 0 0 10px #0f7518; /* Efeito neon */
+}
+
+  /* Posicionamento 3D de cada face do cubo */
+.front  { transform: rotateY(0deg)    translateZ(100px); }
+.back   { transform: rotateY(180deg)  translateZ(100px); }
+.right  { transform: rotateY(90deg)   translateZ(100px); }
+.left   { transform: rotateY(-90deg)  translateZ(100px); }
+.top    { transform: rotateX(90deg)   translateZ(100px); }
+.bottom { transform: rotateX(-90deg)  translateZ(100px); }
+
+
+
+
+
